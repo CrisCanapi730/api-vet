@@ -364,7 +364,7 @@ app.post("/createCitas", (req, res) => {
 });
 
 app.get("/citas", (req, res) => {
-    db.query('SELECT * FROM citas',
+    db.query('SELECT id, fecha, hora, id_mascota, id_usuario, especie, nivel_urgencia FROM citas',
         (err, result) => {
             if (err) {
                 console.log(err);
@@ -375,6 +375,7 @@ app.get("/citas", (req, res) => {
         }
     );
 });
+
 
 app.put("/updateCitas/:id", (req, res) => {
     const { fecha, hora, id_mascota, id_usuario, especie, nivel_urgencia } = req.body;
